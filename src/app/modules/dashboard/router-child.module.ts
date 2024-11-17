@@ -4,7 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CategoryComponent } from '../category/components/category/category.component';
 import { ProductComponent } from '../product/product/product.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
-import { VentasComponent } from '../ventas/ventas.component';
+import { VentasComponent } from '../ventas/ventas/ventas.component';
 
 const childRoutes: Routes = [
     { path: '', component: HomeComponent },

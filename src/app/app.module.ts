@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgChartsModule } from 'ng2-charts';
 import { UserProfileComponent } from './modules/user-profile/user-profile.component';
 import { FormsModule } from '@angular/forms';
+import { VentasComponent } from './modules/ventas/ventas.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -30,7 +31,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
 @NgModule({
   declarations: [
     AppComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,

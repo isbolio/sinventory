@@ -16,7 +16,7 @@ import { NewVentaComponent } from '../new-venta/new-venta.component';
   styleUrls: ['./ventas.component.css']
 })
 export class VentasComponent implements OnInit { 
-  private VentasService = inject(VentasService);
+  private VentasService = inject(VentasService)
   private snackBar = inject(MatSnackBar);
   private dialogRef = inject(MatDialog);
   private key = inject(KeycloakService);

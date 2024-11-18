@@ -32,7 +32,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
   declarations: [
     AppComponent,
     UserProfileComponent,
-    VentasComponent
   ],
   imports: [
     BrowserModule,

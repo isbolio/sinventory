@@ -8,6 +8,7 @@ import { NewVentaComponent } from './new-venta/new-venta.component';
 
 
 
+
 @NgModule({
   declarations: [
     VentasComponent,

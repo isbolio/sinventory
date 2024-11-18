@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CategoryModule } from '../category/category.module';
 import { ProductModule } from '../product/product.module';
 import { MaterialModule } from '../shared/material.module';
+import { VentasModule } from '../ventas/ventas.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MaterialModule } from '../shared/material.module';
     SharedModule,
     CategoryModule,
     ProductModule,
-    MaterialModule
+    MaterialModule,
+    VentasModule
   ]
 })
 export class DashboardModule { }

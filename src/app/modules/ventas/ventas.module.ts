@@ -4,6 +4,7 @@ import { MaterialModule } from '../shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VentasComponent } from './ventas/ventas.component';
 import { NewVentaComponent } from './new-venta/new-venta.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -19,6 +20,7 @@ import { NewVentaComponent } from './new-venta/new-venta.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
   ]
 })
-export class ProductModule { }
+export class VentasModule { }

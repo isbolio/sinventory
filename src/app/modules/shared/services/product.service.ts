@@ -15,6 +15,17 @@ export class ProductService {
     return this.http.get(endpoint);
   }
 
+  getCategorias(){
+    const endpoint =`${url}/Categorias`;
+    return this.http.get(endpoint);
+  }
+
+  filtrarProductos(filterCriteria: any) {
+    const endpoint=`${url}/productos/filtrar`
+    return this.http.get(endpoint);
+  }
+  
+
   AgregarProducts(body:any){
     const endpoint =`${url}/Agregar`;
     return this.http.post(endpoint,body);

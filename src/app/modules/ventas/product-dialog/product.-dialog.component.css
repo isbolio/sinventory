@@ -1,0 +1,78 @@
+/* Alinear texto al centro en títulos */
+.aliner {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+/* Estilo para el contenedor de formularios */
+mat-form-field {
+    width: 100%;
+    margin: 1em 0;
+}
+
+/* Alinear contenido a la derecha */
+.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Botones en la cabecera */
+mat-card-header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1em;
+}
+
+mat-card-header ul li {
+    display: inline-block;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+    background-color: #f5f5f5;
+}
+
+td,
+th {
+    padding: 0.5em;
+    border: 1px solid #ddd;
+}
+
+.mat-cell {
+    font-size: 0.9em;
+}
+
+/* Imagen dentro de la tabla */
+img {
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* Iconos y botones en la tabla */
+mat-icon {
+    cursor: pointer;
+}
+
+button {
+    margin-right: 5px;
+}
+
+/* SnackBar estilos */
+.mat-simple-snackbar {
+    font-weight: bold;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+}

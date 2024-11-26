@@ -1,3 +1,7 @@
+
+
+
+
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar'; 
@@ -41,26 +45,31 @@ export class VentasComponent implements OnInit {
   paginator!: MatPaginator;
   public dialog = inject(MatDialog);
 
-  openProductDialog(){
+  openProductDialog() {
     const dialogRef = this.dialogRef.open(NewVentaComponent, {
-      width: '600px'
+      width: '800px'
     });
-    
-    dialogRef.afterClosed().subscribe(result => {
-      if(result == 1){
-        this.openSnackBar("Producto Agregado", "Exito");
-        this.getProducts();
-      } else if(result == 2){
-        this.openSnackBar("Producto No Agregado", "No Exito");
+  
+    dialogRef.afterClosed().subscribe((venta) => {
+      if (venta) {
+        this.VentasService.saveVenta(venta).subscribe(
+          () => this.openSnackBar('Venta guardada con éxito', 'Éxito'),
+          (error) => this.openSnackBar('Error al guardar la venta', 'Error')
+        );
       }
     });
   }
+
 
   openSnackBar(message: string, action: string): MatSnackBarRef<SimpleSnackBar> {
     return this.snackBar.open(message, action, {
       duration: 2000
     });
   }
+
+  
+
+  
 
 }
 

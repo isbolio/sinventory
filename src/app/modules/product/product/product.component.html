@@ -3,13 +3,38 @@
     <h2 class="aliner">Listado de Productos</h2>
   
     <mat-card-header>
-      <div>
-        <mat-form-field hintLabel="Buscar Productos" appearance="fill" >
+      <div class="filters-container">
+        <!-- Campo de texto para búsqueda general -->
+        <mat-form-field hintLabel="Buscar por nombre" appearance="fill">
           <mat-label>Buscar Productos</mat-label>
           <input matInput #input (keyup)="buscar(input.value)">
         </mat-form-field>
+    
+        <!-- Selector para categorías -->
+        <mat-form-field appearance="fill">
+          <mat-label>Categoría</mat-label>
+          <mat-select (selectionChange)="filtrarPorCategoria($event.value)">
+            <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+              {{ categoria }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <!-- Slider para cantidad de productos -->
+        <mat-form-field appearance="fill">
+          <mat-label>Cantidad</mat-label>
+          <mat-slider
+            min="1"
+            max="100"
+            step="1"
+            thumbLabel
+            [value]="cantidadFiltro"
+            (change)="filtrarPorCantidad($event)">
+          </mat-slider>
+        </mat-form-field>
       </div>
     </mat-card-header>
+    
   
     <mat-card-header>
       <div class="right">

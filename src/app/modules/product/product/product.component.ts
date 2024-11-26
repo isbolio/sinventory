@@ -20,12 +20,16 @@ export class ProductComponent implements OnInit{
   private dialogRef = inject(MatDialog);
   private key = inject(KeycloakService);
   private util = inject(UtilService);
+  categorias: string[] = [];
+  cantidadFiltro: number = 10; // Valor inicial
+  filterCriteria: any = {};
   isAdmin:any;
   
   ngOnInit(): void {
     this.getProducts();
     console.log(this.key.getUserRoles());
     this.isAdmin = this.util.isAdmin();
+    this.loadCategorias();
   }
   
   displayColumns: string[] = ['id', 'name', 'price', 'account', 'category', 'picture', 'actions'];
@@ -42,6 +46,14 @@ export class ProductComponent implements OnInit{
     },(error:any)=>{
       console.log("Respuesta no obtenida",error);
     })
+  }
+
+  loadCategorias() {
+    this.productService.getCategorias().subscribe((resp: any) => {
+      if (resp.metadata[0].Codigo == "00") {
+        this.categorias = resp.categoryResponse.categoryList.map((c: any) => c.name);
+      }
+    });
   }
   
   processProduct(resp:any){
@@ -90,6 +102,24 @@ export class ProductComponent implements OnInit{
       this.processProduct(resp);
     });
   }
+  filtrarPorCategoria(categoria: string) {
+    this.filterCriteria.category = categoria;
+    this.applyFilters();
+  }
+
+  // Filtro por cantidad
+  filtrarPorCantidad(event: any) {
+    this.filterCriteria.account = event.value;
+    this.applyFilters();
+  }
+
+  // Aplicar filtros
+  applyFilters() {
+    this.productService.filtrarProductos(this.filterCriteria).subscribe((resp: any) => {
+      this.processProduct(resp);
+    });
+  }
+
 
   edit(id:number,name:string,price:number,account:number,category:any){
     const dialogRef = this.dialog.open(NewProductComponent, {

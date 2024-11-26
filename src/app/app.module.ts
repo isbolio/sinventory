@@ -9,6 +9,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { UserProfileComponent } from './modules/user-profile/user-profile.component';
 import { FormsModule } from '@angular/forms';
 import { VentasComponent } from './modules/ventas/ventas/ventas.component';
+import { MatSliderModule } from '@angular/material/slider';
+
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -19,7 +21,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
         clientId: 'angular-client'
       },
       initOptions: {
-        onLoad: 'login-required',
+        onLoad: 'login-required', 
         flow: "standard",
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html'
@@ -40,6 +42,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     BrowserAnimationsModule,
     KeycloakAngularModule,
     NgChartsModule,
+    MatSliderModule,
     FormsModule
   ],
   providers: [
